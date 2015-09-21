@@ -1,0 +1,35 @@
+openAcc: http://localhost:8080/Account/rpc/openAcc
+{accountName: 'acc1', direction: 'debit'}
+{accountName: 'acc2', direction: 'credit'}
+
+
+
+batchCommand: http://localhost:8080/Account/rpc/batchCommand
+{
+    commandSeqno: '1',
+    commandLs:[
+     {commandType:'transfer', fromAccountNo:'4290000000000004', toAccountNo:'4290000000000002', amount:'10000', transferType:'chongzhi', tradeNo:'1', outTradeNo:'1'}
+    ]
+}
+{
+    commandSeqno: '2',
+    commandLs:[
+     {commandType:'freeze', accountNo:'4290000000000002', amount:'1000', transferType:'f', tradeNo:'1', outTradeNo:'1'}
+    ]
+}
+{
+    commandSeqno: '3',
+    commandLs:[
+     {commandType:'unfreeze', accountNo:'4290000000000002', amount:'2000', transferType:'f', tradeNo:'1', outTradeNo:'1'}
+    ]
+}
+
+{
+    commandSeqno: '4',
+    commandLs:[
+     {commandType:'transfer', fromAccountNo:'4290000000000004', toAccountNo:'4290000000000002', amount:'10000', transferType:'chongzhi', tradeNo:'1', outTradeNo:'1'},
+     {commandType:'freeze', accountNo:'4290000000000002', amount:'1000', transferType:'f', tradeNo:'1', outTradeNo:'1'},
+     {commandType:'freeze', accountNo:'4290000000000002', amount:'1000', transferType:'f', tradeNo:'1', outTradeNo:'1'},
+     {commandType:'unfreeze', accountNo:'4290000000000002', amount:'2000', transferType:'f', tradeNo:'1', outTradeNo:'1'}
+    ]
+}
